@@ -76,6 +76,18 @@ class StudentController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionCreate1()
+    {
+        $model = new StudentRegistration();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('create1', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Updates an existing StudentRegistration model.

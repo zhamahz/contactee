@@ -1,11 +1,12 @@
 <?php
 
+
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\StudentRegistration */
 
-$this->title = 'Заполнение профайла';
+$this->title = 'Подать заявление';
 $this->params['breadcrumbs'][] = ['label' => 'Student Registrations', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -13,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?= $this->render('_form1', [
         'model' => $model,
     ]) ?>
 
