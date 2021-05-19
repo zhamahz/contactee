@@ -60,7 +60,7 @@ use Yii;
  * @property University $uni5
  * @property Programs $program2
  */
-class StudentRegistration extends \yii\db\ActiveRecord
+class StudentRegistration1 extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -76,12 +76,12 @@ class StudentRegistration extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user'/*, 'fullname', 'gender', 'birthday', 'id_country', 'email', 'photo_passport', 'pdf_attestat', 'pdf_motivation', 'id_uni_1', 'id_program_1', 'datetime_reg_1', 'id_uni_2', 'id_program_2', 'datetime_reg_2', 'id_uni_3', 'id_program_3', 'datetime_reg_3', 'id_uni_4', 'id_program_4', 'datetime_reg_4', 'id_uni_5', 'id_program_5', 'datetime_reg_5', 'id_uni_accepted_1', 'id_uni_accepted_2', 'id_uni_accepted_3', 'id_uni_accepted_4', 'id_uni_accepted_5', 'visa', 'datetime_visa', 'status_visa'*/], 'required'],
+            [['id_user'], 'required'],
             [['id_user', 'id_country', 'id_uni_1', 'id_program_1', 'id_uni_2', 'id_program_2', 'id_uni_3', 'id_program_3', 'id_uni_4', 'id_program_4', 'id_uni_5', 'id_program_5', 'id_uni_accepted_1', 'id_uni_accepted_2', 'id_uni_accepted_3', 'id_uni_accepted_4', 'id_uni_accepted_5'], 'integer'],
             [['birthday', 'datetime_reg_1', 'datetime_reg_2', 'datetime_reg_3', 'datetime_reg_4', 'datetime_reg_5', 'datetime_visa'], 'safe'],
-            [['photo_passport', 'pdf_attestat', 'pdf_motivation'], 'string'],
+            [['photo_passport', 'pdf_attestat', 'pdf_motivation', 'status_visa'], 'string'],
             [['fullname', 'gender', 'email'], 'string', 'max' => 255],
-            [['visa', 'status_visa'], 'string', 'max' => 20],
+            [['visa'], 'string', 'max' => 20],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['id_program_3'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_program_3' => 'id']],
             [['id_program_3'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_program_3' => 'id']],
@@ -109,39 +109,39 @@ class StudentRegistration extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '№',
-            'id_user' => 'Пользователь',
-            'fullname' => 'ФИО',
-            'gender' => 'Пол',
-            'birthday' => 'Дата рождения',
-            'id_country' => 'Гражданство',
-            'email' => 'Электронный адресс',
-            'photo_passport' => 'Паспорт',
-            'pdf_attestat' => 'Аттестат',
-            'pdf_motivation' => 'Мотивационка',
-            'id_uni_1' => 'Университет №1',
-            'id_program_1' => 'Специальность №1',
-            'datetime_reg_1' => 'Дата подачи №1',
-            'id_uni_2' => 'Университет №2',
-            'id_program_2' => 'Специальность №2',
-            'datetime_reg_2' => 'Дата подачи №2',
-            'id_uni_3' => 'Университет №3',
-            'id_program_3' => 'Специальность №3',
-            'datetime_reg_3' => 'Дата подачи №3',
-            'id_uni_4' => 'Университет №4',
-            'id_program_4' => 'Специальность №4',
-            'datetime_reg_4' => 'Дата подачи №4',
-            'id_uni_5' => 'Университет №5',
-            'id_program_5' => 'Специальность №5',
-            'datetime_reg_5' => 'Дата подачи №5',
-            'id_uni_accepted_1' => 'Принятый университет №1',
-            'id_uni_accepted_2' => 'Принятый университет №2',
-            'id_uni_accepted_3' => 'Принятый университет №3',
-            'id_uni_accepted_4' => 'Принятый университет №4',
-            'id_uni_accepted_5' => 'Принятый университет №5',
-            'visa' => 'Виза',
-            'datetime_visa' => 'Дата подачи на визу',
-            'status_visa' => 'Статус визы',
+            'id' => 'ID',
+            'id_user' => 'Id User',
+            'fullname' => 'Fullname',
+            'gender' => 'Gender',
+            'birthday' => 'Birthday',
+            'id_country' => 'Id Country',
+            'email' => 'Email',
+            'photo_passport' => 'Photo Passport',
+            'pdf_attestat' => 'Pdf Attestat',
+            'pdf_motivation' => 'Pdf Motivation',
+            'id_uni_1' => 'Id Uni 1',
+            'id_program_1' => 'Id Program 1',
+            'datetime_reg_1' => 'Datetime Reg 1',
+            'id_uni_2' => 'Id Uni 2',
+            'id_program_2' => 'Id Program 2',
+            'datetime_reg_2' => 'Datetime Reg 2',
+            'id_uni_3' => 'Id Uni 3',
+            'id_program_3' => 'Id Program 3',
+            'datetime_reg_3' => 'Datetime Reg 3',
+            'id_uni_4' => 'Id Uni 4',
+            'id_program_4' => 'Id Program 4',
+            'datetime_reg_4' => 'Datetime Reg 4',
+            'id_uni_5' => 'Id Uni 5',
+            'id_program_5' => 'Id Program 5',
+            'datetime_reg_5' => 'Datetime Reg 5',
+            'id_uni_accepted_1' => 'Id Uni Accepted 1',
+            'id_uni_accepted_2' => 'Id Uni Accepted 2',
+            'id_uni_accepted_3' => 'Id Uni Accepted 3',
+            'id_uni_accepted_4' => 'Id Uni Accepted 4',
+            'id_uni_accepted_5' => 'Id Uni Accepted 5',
+            'visa' => 'Visa',
+            'datetime_visa' => 'Datetime Visa',
+            'status_visa' => 'Status Visa',
         ];
     }
 

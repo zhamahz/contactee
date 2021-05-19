@@ -67,7 +67,7 @@ class StudentController extends Controller
     public function actionCreate()
     {
         $model = new StudentRegistration();
-
+        $model->id_user=16/*Yii::$app->user->identity->id*/;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
