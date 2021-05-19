@@ -164,7 +164,9 @@ AppAsset::register($this);
 				['label' => 'Тест1', 'url' => ['/university/index3'], 'visible' => !Yii::$app->user->isGuest],
 				['label' => 'Тест2', 'url' => ['/university/indexmon2'], 'visible' => !Yii::$app->user->isGuest],
 				['label' => 'Тест3', 'url' => ['/university/index4'], 'visible' => !Yii::$app->user->isGuest],
-			],],
+                ['label' => 'Тест4', 'url' => ['/university/indexmon5'], 'visible' => !Yii::$app->user->isGuest],
+
+            ],],
 			[
 				'label' => 'Пользователи',
 				'items'=>UserManagementModule::menuItems()

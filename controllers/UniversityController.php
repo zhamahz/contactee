@@ -143,15 +143,38 @@ class UniversityController extends Controller
    //МОН списки приемной комиссии вузов:  view-> user2/indexmoncommitet
     public function actionIndexmoncommitet()
     {
+        $q = Yii::$app->user->identity->id;
+
         $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
+
+        if ($q == 12)
+        {
+            $dataProvider=new ActiveDataProvider(['query' => User2::find()->where(['status' => 2])]);
+        }
+
         return $this->render('user2/indexmoncommitet',[
             'dataProvider'=>$dataProvider,
         ]);
+
     }
 
     //МОН списки всех поданных заялений:  view-> student-registration/indexmonlistapplic
     public function actionIndexmonlistapplic()
     {
+//        $q = Yii::$app->user->identity->id;
+//
+//        $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//
+//        if ($q == 12)
+//        {
+//            $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()->where('or',['id_uni_accepted_1' => 1],
+//                ['id_uni_accepted_2' => 1], ['id_uni_accepted_3' => 1], ['id_uni_accepted_4' => 1], ['id_uni_accepted_5' => 1])]);
+//        }
+//
+//        return $this->render('student-registration/indexmonlistapplic',[
+//            'dataProvider'=>$dataProvider,
+//        ]);
+
         $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
         return $this->render('student-registration/indexmonlistapplic',[
             'dataProvider'=>$dataProvider,
@@ -231,6 +254,22 @@ class UniversityController extends Controller
 		}
 
         return $this->render('indexmon2',[
+            'dataProvider'=>$dataProvider,
+        ]);
+    }
+//test5
+    public function actionIndexmon5()
+    {
+        $q = Yii::$app->user->identity->id;
+
+        $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
+
+        if ($q == 12)
+        {
+            $dataProvider=new ActiveDataProvider(['query' => User2::find()->where(['status' => 2])]);
+        }
+
+        return $this->render('indexmon5',[
             'dataProvider'=>$dataProvider,
         ]);
     }
